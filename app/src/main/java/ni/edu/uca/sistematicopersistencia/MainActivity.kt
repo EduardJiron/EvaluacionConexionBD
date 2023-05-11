@@ -19,7 +19,41 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val txtnombre = findViewById<EditText>(R.id.txtNombre)
+        val txtprecio = findViewById<EditText>(R.id.txtPrecio)
+        val txtexistencia = findViewById<EditText>(R.id.txtExistencia)
+        val btnAgregar = findViewById<Button>(R.id.btnAgregar)
+
+        val room= Room.databaseBuilder(this, BaseDatos::class.java, "Producto").allowMainThreadQueries().build()
+
+        val recyclerView= findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView.layoutManager= LinearLayoutManager(this)
+
+        val dao= room.productoDao()
+        recyclerView.adapter= ProductoAdacterVh( dao.obtRegistos())
+
+
+
+
+
+
+        btnAgregar.setOnClickListener(){
+
+            try {
+
+                if(txtnombre.text.toString().isEmpty() || txtprecio.text.toString().isEmpty() || txtexistencia.text.toString().isEmpty()){
+                    Toast.makeText(this, "Ingrese los datos", Toast.LENGTH_SHORT).show()
+                }else{
+                    dao.insertarReg(producto= EntityProducto(nombre = txtnombre.text.toString(), precio = txtprecio.text.toString().toDouble(), existencia = txtexistencia.text.toString().toInt()))
+                    recyclerView.adapter= ProductoAdacterVh( dao.obtRegistos())
+                }
+            }
+            catch (e: Exception){
+                Toast.makeText(this, "Error al ingresar los datos", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+
 
     }
-
 }
