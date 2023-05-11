@@ -34,11 +34,11 @@
         android:layout_marginEnd="16dp" />
 
     <EditText
-        android:id="@+id/txtApellido"
+        android:id="@+id/txtPrecio"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Apellido"
+        android:hint="precio"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,15 +48,15 @@
         android:layout_marginEnd="16dp" />
 
     <EditText
-        android:id="@+id/txtEdad"
+        android:id="@+id/txtExistencia"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Edad"
+        android:hint="existencia"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtApellido"
+        app:layout_constraintTop_toBottomOf="@+id/txtPrecio"
         android:layout_marginTop="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp" />
@@ -69,7 +69,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEdad">
+        app:layout_constraintTop_toBottomOf="@+id/txtExistencia">
 
         <Button
             android:id="@+id/btnAgregar"

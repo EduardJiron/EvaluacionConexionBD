@@ -7,13 +7,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ni.edu.uca.sistematicopersistencia.R
 
-class personaAdacterVh(private val producto: List<EntityProducto>): RecyclerView.Adapter<personaAdacterVh.ViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): personaAdacterVh.ViewHolder {
+class ProductoAdacterVh(private val producto: List<EntityProducto>): RecyclerView.Adapter<ProductoAdacterVh.ViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductoAdacterVh.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.itemproducto, parent, false)
         return ViewHolder(v)
     }
 
-    override fun onBindViewHolder(holder: personaAdacterVh.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ProductoAdacterVh.ViewHolder, position: Int) {
         holder.bindItems(producto[position])
 
     }

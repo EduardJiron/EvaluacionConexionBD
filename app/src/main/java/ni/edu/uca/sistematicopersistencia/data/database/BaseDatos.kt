@@ -11,20 +11,5 @@ import ni.edu.uca.sistematicopersistencia.data.database.entities.EntityProducto
 abstract class BaseDatos: RoomDatabase(){
     abstract fun productoDao(): ProductoDao
 
-    companion object{
-        @Volatile
-        private var INSTANCE: BaseDatos?= null
 
-        fun obtBaseDatos(context: Context):BaseDatos{
-            return INSTANCE?: synchronized(this){
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    BaseDatos::class.java,
-                    "basedatos"
-                ).build()
-                INSTANCE = instance
-                instance
-            }
-        }
-    }
 }
