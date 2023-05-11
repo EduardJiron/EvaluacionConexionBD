@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         val txtprecio = findViewById<EditText>(R.id.txtPrecio)
         val txtexistencia = findViewById<EditText>(R.id.txtExistencia)
         val btnAgregar = findViewById<Button>(R.id.btnAgregar)
+        val btnLimpiar= findViewById<Button>(R.id.btnlimpiar)
+
 
         val room= Room.databaseBuilder(this, BaseDatos::class.java, "Producto").allowMainThreadQueries().build()
 
@@ -51,6 +53,14 @@ class MainActivity : AppCompatActivity() {
             catch (e: Exception){
                 Toast.makeText(this, "Error al ingresar los datos", Toast.LENGTH_SHORT).show()
             }
+
+        }
+
+        btnLimpiar.setOnClickListener(){
+
+            txtexistencia.setText("")
+            txtprecio.setText("")
+            txtnombre.setText("")
 
         }
 
